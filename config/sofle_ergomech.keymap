@@ -32,6 +32,16 @@
             if-layers = <5 6>;
             then-layer = <7>;
         };
+
+        doublelower {
+            if-layers = <2 5>;
+            then-layer = <4>;
+        };
+
+        doubleraise {
+            if-layers = <3 6>;
+            then-layer = <7>;
+        };
     };
 
     behaviors {
@@ -155,8 +165,8 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            label = "default";
+        qwerty_layer {
+            label = "qwerty";
 
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
@@ -205,12 +215,12 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0        &trans
-&trans  &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET      &kp N7           &kp N8           &kp N9           &kp RBKT               &trans
-&trans  &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
-&trans  &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &kp LEFT_PARENTHESIS  &kp N1           &kp N2           &kp N3           &kp RIGHT_PARENTHESIS  &trans
-&trans  &trans           &trans           &trans           &trans           &trans           &trans                &kp N0           &kp DOT          &kp KP_SUBTRACT  &kp KP_PLUS
-                                                                                             &kp KP_ENTER          &kp RIGHT        &kp UP_ARROW     &kp LEFT_ARROW   &kp DOWN
+&trans      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0        &trans
+&trans      &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET      &kp N7           &kp N8           &kp N9           &kp RBKT               &trans
+&trans      &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
+&caps_word  &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &kp LEFT_PARENTHESIS  &kp N1           &kp N2           &kp N3           &kp RIGHT_PARENTHESIS  &trans
+&trans      &trans           &trans           &trans           &trans           &trans           &trans                &kp N0           &kp DOT          &trans           &trans
+                                                                                                 &kp KP_ENTER          &kp RIGHT        &kp UP_ARROW     &kp LEFT_ARROW   &kp DOWN
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -248,12 +258,12 @@
 
             label = "adjust";
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &none  &none           &none            &none       &none   &kp LC(LA(DEL))
-&bt BT_CLR_ALL  &none         &none         &none         &out OUT_TOG  &ext_power EP_TOG  &none  &none           &kp C_VOLUME_UP  &none       &none   &kp LC(LS(ESCAPE))
-&sys_reset      &none         &none         &none         &none         &none              &none  &kp C_PREVIOUS  &kp C_VOL_DN     &kp C_NEXT  &none   &kp LG(R)
-&bootloader     &none         &none         &none         &none         &tog 1             &none  &none           &none            &none       &none   &kp LG(L)
-&none           &trans        &trans        &trans        &trans        &pw1               &pw2   &trans          &trans           &trans      &trans
-                                                                                           &none  &none           &none            &none       &none
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4  &none  &none           &none            &none       &kp LC(LA(DEL))     &trans
+&trans  &none         &none         &none         &bt BT_CLR_ALL     &bt BT_CLR    &none  &none           &kp C_VOLUME_UP  &none       &kp LC(LS(ESCAPE))  &trans
+&trans  &sys_reset    &none         &none         &ext_power EP_TOG  &out OUT_TOG  &none  &kp C_PREVIOUS  &kp C_VOL_DN     &kp C_NEXT  &kp LG(R)           &trans
+&trans  &bootloader   &none         &none         &none              &tog 1        &none  &none           &none            &none       &kp LG(L)           &trans
+&none   &trans        &trans        &trans        &trans             &pw1          &pw2   &trans          &trans           &trans      &trans
+                                                                                   &none  &none           &none            &none       &none
             >;
         };
 
@@ -266,6 +276,8 @@
 &trans  &trans     &trans     &trans      &trans      &trans         &trans          &trans        &trans         &trans         &trans
                                                                      &trans          &trans        &trans         &trans         &trans
             >;
+
+            label = "lower_alt";
         };
 
         raise_alt {
@@ -293,6 +305,8 @@
 &none  &none            &none            &none            &none            &none            &none            &none    &none    &none    &none
                                                                                             &none            &none    &none    &none    &none
             >;
+
+            label = "adjust_alt";
         };
     };
 };
