@@ -209,12 +209,12 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp ESC           &kp PG_DN     &kp LS(UP)    &kp PG_UP      &kp SPACE          &none   &kp F10  &kp F11  &kp F12  &none   &trans
-&trans  &kp PG_UP         &kp LC(LEFT)  &kp UP        &kp LC(RIGHT)  &kp LG(BSPC)       &none   &kp F7   &kp F8   &kp F9   &none   &trans
-&trans  &kp HOME          &kp LEFT      &kp DOWN      &kp RIGHT      &kp END            &none   &kp F4   &kp F5   &kp F6   &none   &trans
-&trans  &kp LS(LC(LEFT))  &kp LS(LEFT)  &kp LS(DOWN)  &kp LS(RIGHT)  &kp LS(LC(RIGHT))  &none   &kp F1   &kp F2   &kp F3   &none   &trans
-&trans  &trans            &trans        &trans        &trans         &trans             &trans  &trans   &trans   &trans   &trans
-                                                                                        &kp A   &kp B    &kp C    &kp D    &kp E
+&trans  &kp ESC           &kp PG_DN     &kp LS(UP)    &kp PG_UP      &kp SPACE          &none   &none  &none  &none  &none   &none
+&trans  &kp PG_UP         &kp LC(LEFT)  &kp UP        &kp LC(RIGHT)  &kp LG(BSPC)       &msc MOVE_UP    &msc MOVE_LEFT  &mmv MOVE_UP    &msc MOVE_RIGHT  &mkp MB4  &trans
+&trans  &kp HOME          &kp LEFT      &kp DOWN      &kp RIGHT      &kp END            &msc MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5  &trans
+&trans  &kp LS(LC(LEFT))  &kp LS(LEFT)  &kp LS(DOWN)  &kp LS(RIGHT)  &kp LS(LC(RIGHT))  &mkp LCLK       &mkp RCLK       &mkp MCLK       &none           &none    &trans
+&trans  &trans            &trans        &trans        &trans         &trans             &none  &none   &none   &none   &none
+                                                                                        &none  &none   &none   &none   &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
