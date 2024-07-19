@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
@@ -209,12 +210,12 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp ESC           &kp PG_DN     &kp LS(UP)    &kp PG_UP      &kp SPACE          &none   &none  &none  &none  &none   &none
+&trans  &kp ESC           &kp PG_DN     &kp LS(UP)    &kp PG_UP      &kp LC(SPACE)      &none           &none           &none           &none            &none     &trans
 &trans  &kp PG_UP         &kp LC(LEFT)  &kp UP        &kp LC(RIGHT)  &kp LG(BSPC)       &msc MOVE_UP    &msc MOVE_LEFT  &mmv MOVE_UP    &msc MOVE_RIGHT  &mkp MB4  &trans
 &trans  &kp HOME          &kp LEFT      &kp DOWN      &kp RIGHT      &kp END            &msc MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MB5  &trans
-&trans  &kp LS(LC(LEFT))  &kp LS(LEFT)  &kp LS(DOWN)  &kp LS(RIGHT)  &kp LS(LC(RIGHT))  &mkp LCLK       &mkp RCLK       &mkp MCLK       &none           &none    &trans
-&trans  &trans            &trans        &trans        &trans         &trans             &none  &none   &none   &none   &none
-                                                                                        &none  &none   &none   &none   &none
+&trans  &kp LS(LC(LEFT))  &kp LS(LEFT)  &kp LS(DOWN)  &kp LS(RIGHT)  &kp LS(LC(RIGHT))  &mkp MB1        &mkp MB2        &mkp MB3        &none            &none     &trans
+&trans  &trans            &trans        &trans        &trans         &trans             &trans          &trans          &trans          &trans           &trans
+                                                                                        &none           &none           &none           &none            &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -230,12 +231,12 @@
 
             label = "adjust";
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &pw2          &kp LS(AMPS)  &kp LS(STAR)   &kp LS(LPAR)   &kp LS(RPAR)   &trans
-&bt BT_CLR_ALL  &none         &none         &none         &out OUT_TOG  &ext_power EP_TOG  &kp LS(LBRC)  &kp LS(AMPS)  &kp LS(STAR)   &kp LS(LPAR)   &kp LS(RBRC)   &trans
-&sys_reset      &none         &none         &none         &none         &none              &kp LS(PLUS)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &kp LS(DQT)    &trans
-&bootloader     &none         &none         &none         &none         &none              &kp LS(PIPE)  &kp LS(EXCL)  &kp LS(AT)     &kp LS(POUND)  &kp LS(TILDE)  &trans
-&none           &none         &none         &none         &none         &none              &none         &none         &none          &none          &none
-                                                                                           &kp A         &kp B         &kp C          &kp D          &kp E
+&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &pw2          &kp LS(AMPS)    &kp LS(STAR)     &kp LS(LPAR)   &kp LS(RPAR)   &trans
+&bt BT_CLR_ALL  &none         &none         &none         &out OUT_TOG  &ext_power EP_TOG  &kp LS(LBRC)  &kp LS(AMPS)    &kp C_VOLUME_UP  &kp LS(LPAR)   &kp LS(RBRC)   &trans
+&sys_reset      &none         &none         &none         &none         &none              &kp LS(PLUS)  &kp C_PREVIOUS  &kp C_VOL_DN     &kp C_NEXT     &kp LS(DQT)    &trans
+&bootloader     &none         &none         &none         &none         &none              &kp LS(PIPE)  &kp LS(EXCL)    &kp LS(AT)       &kp LS(POUND)  &kp LS(TILDE)  &trans
+&none           &none         &none         &none         &none         &pw1               &pw2          &none           &none            &none          &none
+                                                                                           &kp A         &kp B           &kp C            &kp D          &kp E
             >;
         };
 
