@@ -293,12 +293,12 @@
 
             label = "adjust";
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4  &none  &none           &none            &none       &kp LC(LA(DEL))     &trans
-&trans  &none         &none         &none         &bt BT_CLR_ALL     &bt BT_CLR    &none  &none           &kp C_VOLUME_UP  &none       &kp LC(LS(ESCAPE))  &trans
-&trans  &sys_reset    &none         &none         &ext_power EP_TOG  &out OUT_TOG  &none  &kp C_PREVIOUS  &kp C_VOL_DN     &kp C_NEXT  &kp LG(R)           &trans
-&trans  &bootloader   &none         &none         &none              &tog 1        &none  &none           &none            &none       &kp LG(L)           &trans
-&none   &trans        &trans        &trans        &trans             &pw1          &pw2   &trans          &trans           &trans      &trans
-                                                                                   &none  &none           &none            &none       &none
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4  &tog 1  &none           &none            &none       &kp LC(LA(DEL))     &trans
+&trans  &none         &none         &none         &bt BT_CLR_ALL     &bt BT_CLR    &none   &none           &kp C_VOLUME_UP  &none       &kp LC(LS(ESCAPE))  &trans
+&trans  &sys_reset    &none         &none         &ext_power EP_TOG  &out OUT_TOG  &none   &kp C_PREVIOUS  &kp C_VOL_DN     &kp C_NEXT  &kp LG(R)           &trans
+&trans  &bootloader   &none         &none         &none              &tog 1        &none   &none           &none            &none       &kp LG(L)           &trans
+&none   &trans        &trans        &trans        &trans             &pw1          &pw2    &trans          &trans           &trans      &trans
+                                                                                   &none   &none           &none            &none       &none
             >;
         };
 
