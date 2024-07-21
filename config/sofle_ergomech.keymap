@@ -160,6 +160,41 @@
             bindings = <&none &kp B &kp LS(M) &kp LS(J) &kp L &kp RPAR &kp O &kp LS(Q) &kp LS(F) &kp V &kp K &kp N9 &kp V>;
             label = "PW2";
         };
+
+        m1: m1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_1 &kp KP_NUMBER_1>;
+            label = "M1";
+        };
+
+        m2: m2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_2 &kp KP_NUMBER_2>;
+            label = "M2";
+        };
+
+        m3: m3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_3 &kp KP_NUMBER_3>;
+            label = "M3";
+        };
+
+        m4: m4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_4 &kp KP_NUMBER_4>;
+            label = "M4";
+        };
+
+        m5: m5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N5 &kp KP_NUMBER_5>;
+            label = "M5";
+        };
     };
 
     keymap {
