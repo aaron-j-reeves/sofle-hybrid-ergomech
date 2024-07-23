@@ -59,13 +59,15 @@
             label = "WINCONTROL";
             #binding-cells = <0>;
             bindings = <&kp LA(LG(K))>, <&kp LG(L)>, <&kp LS(LC(ESCAPE))>;
+
+            tapping-term-ms = <400>;
         };
 
         wintap: wintap {
             compatible = "zmk,behavior-hold-tap";
             label = "WINTAP";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <400>;
             bindings = <&kp>, <&wincontrol>;
         };
 
@@ -74,6 +76,8 @@
             label = "TDPAR";
             #binding-cells = <0>;
             bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+
+            tapping-term-ms = <250>;
         };
 
         MTpar: MTpar {
@@ -110,8 +114,9 @@
             bindings = <&mo>, <&ShiftDel>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
+            quick-tap-ms = <150>;
         };
 
         TDundoredo: TDundoredo {
@@ -119,6 +124,8 @@
             label = "TDUNDOREDO";
             #binding-cells = <0>;
             bindings = <&kp LC(Z)>, <&kp LC(Y)>;
+
+            tapping-term-ms = <250>;
         };
 
         enterspace: enterspace {
