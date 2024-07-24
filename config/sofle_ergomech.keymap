@@ -104,8 +104,9 @@
             bindings = <&mo>, <&escgrv>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
+            quick-tap-ms = <150>;
         };
 
         LTshiftdel: LTshiftdel {
@@ -138,6 +139,28 @@
             quick-tap-ms = <500>;
             flavor = "tap-preferred";
         };
+
+        LTraiseup: LTraiseup {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LTRAISEUP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+        };
+
+        LTlowtab: LTlowtab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LTLOWTAB";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+        };
     };
 
     combos {
@@ -161,6 +184,46 @@
         undoredo {
             bindings = <&TDundoredo>;
             key-positions = <37 38>;
+        };
+
+        pwc1 {
+            bindings = <&pw1>;
+            key-positions = <0 12 24 36 49>;
+        };
+
+        pwc2 {
+            bindings = <&pw2>;
+            key-positions = <11 23 35 47 58>;
+        };
+
+        cm90 {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <10 9>;
+        };
+
+        cm89 {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <9 8>;
+        };
+
+        cm78 {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <8 7>;
+        };
+
+        cm67 {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <6 7>;
+        };
+
+        cmtaba {
+            bindings = <&caps_word>;
+            key-positions = <24 25>;
+        };
+
+        cmgaming {
+            bindings = <&tog 1>;
+            key-positions = <28 27 26 25 31 32 33 34>;
         };
     };
 
@@ -229,12 +292,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&LTescgrv 5 0             &kp N1        &kp N2         &kp N3                   &kp N4              &kp N5     &kp N6           &kp N7     &kp N8        &kp N9          &kp N0     &LTshiftdel 6 0
-&kp MINUS                 &kp Q         &kp W          &kp E                    &kp R               &kp T      &kp Y            &kp U      &kp I         &kp O           &kp P      &kp BACKSLASH
-&kp TAB                   &kp A         &kp S          &kp D                    &kp F               &kp G      &kp H            &kp J      &kp K         &kp L           &kp SEMI   &kp SQT
-&MTpar LEFT_SHIFT 0       &kp Z         &kp X          &kp C                    &kp V               &kp B      &kp N            &kp M      &kp COMMA     &kp DOT         &kp FSLH   &mt RIGHT_SHIFT KP_ENTER
-&wintap LA(LC(DELETE)) 0  &mt LGUI F24  &lt 2 LG(TAB)  &mt LEFT_CONTROL DELETE  &mt LALT BACKSPACE  &kp ENTER  &kp SPACE        &kp LEFT   &kp DOWN      &lt 3 UP_ARROW  &kp RIGHT
-                                                                                                               &kp PRINTSCREEN  &kp RIGHT  &kp UP_ARROW  &kp LEFT        &kp DOWN
+&LTescgrv 5 0             &kp N1        &kp N2         &kp N3                   &kp N4              &kp N5     &kp N6           &kp N7     &kp N8        &kp N9                 &kp N0     &LTshiftdel 6 0
+&kp MINUS                 &kp Q         &kp W          &kp E                    &kp R               &kp T      &kp Y            &kp U      &kp I         &kp O                  &kp P      &kp BACKSLASH
+&kp TAB                   &kp A         &kp S          &kp D                    &kp F               &kp G      &kp H            &kp J      &kp K         &kp L                  &kp SEMI   &kp SQT
+&MTpar LEFT_SHIFT 0       &kp Z         &kp X          &kp C                    &kp V               &kp B      &kp N            &kp M      &kp COMMA     &kp DOT                &kp FSLH   &mt RIGHT_SHIFT KP_ENTER
+&wintap LA(LC(DELETE)) 0  &mt LGUI F24  &lt 2 LG(TAB)  &mt LEFT_CONTROL DELETE  &mt LALT BACKSPACE  &kp ENTER  &kp SPACE        &kp LEFT   &kp DOWN      &LTraiseup 3 UP_ARROW  &kp RIGHT
+                                                                                                               &kp PRINTSCREEN  &kp RIGHT  &kp UP_ARROW  &kp LEFT               &kp DOWN
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_DN &inc_dec_kp PG_UP PG_UP>;
