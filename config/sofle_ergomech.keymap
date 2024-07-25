@@ -15,9 +15,13 @@
 #define QWERTY 0
 #define GAMING 1
 #define NUM 2
-#define LOWER 3
-#define RAISE 4
-#define ADJUST 5
+#define MOUSE 3
+#define LOWER 4
+#define RAISE 5
+#define ADJUST 6
+#define LOWERALT 7
+#define RAISEALT 8
+#define ADJUSTALT 9
 
 /* Global settings */
 
