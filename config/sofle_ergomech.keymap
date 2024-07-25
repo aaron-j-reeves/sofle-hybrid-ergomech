@@ -37,33 +37,37 @@
 };
 
 /* urob stuff */
-/* Caps-word, num-word and smart-mouse */
-
-// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
-ZMK_MOD_MORPH(smart_shft,
-    bindings = <&sk LSHFT>, <&caps_word>;
-    mods = <(MOD_LSFT)>;
-)
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-};
-
-// tap: num-word | double-tap: sticky num-layer | hold: num-layer
-#define SMART_NUM &smart_num NUM 0
-ZMK_HOLD_TAP(smart_num,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&num_dance>;
-)
-ZMK_TAP_DANCE(num_dance,
-    tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
-)
-&num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-};
+    /* Caps-word, num-word and smart-mouse */
+    
+        #include "zmk-helpers/helper.h"
+        // Source desired key-position labels
+        #include "zmk-helpers/key-labels/sofle.h"
+    
+    // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+        ZMK_MOD_MORPH(smart_shft,
+            bindings = <&sk LSHFT>, <&caps_word>;
+            mods = <(MOD_LSFT)>;
+        )
+        &caps_word {  // mods deactivate caps-word, requires PR #1451
+            /delete-property/ ignore-modifiers;
+        };
+    
+    // tap: num-word | double-tap: sticky num-layer | hold: num-layer
+        #define SMART_NUM &smart_num NUM 0
+        ZMK_HOLD_TAP(smart_num,
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            bindings = <&mo>, <&num_dance>;
+        )
+        ZMK_TAP_DANCE(num_dance,
+            tapping-term-ms = <200>;
+            bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+        )
+        &num_word {  // num-word, requires PR #1451
+            layers = <NUM>;
+            continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+        };
 
 / {
     // Activate ADJUST layer by pressing raise and lower
@@ -345,7 +349,7 @@ ZMK_TAP_DANCE(num_dance,
 &kp TAB                   &kp A         &kp S          &kp D                    &kp F               &kp G      &kp H            &kp J      &kp K         &kp L                  &kp SEMI   &kp SQT
 &MTpar LEFT_SHIFT 0       &kp Z         &kp X          &kp C                    &kp V               &kp B      &kp N            &kp M      &kp COMMA     &kp DOT                &kp FSLH   &mt RIGHT_SHIFT KP_ENTER
 &wintap LA(LC(DELETE)) 0  &mt LGUI F24  &lt 2 LG(TAB)  &mt LEFT_CONTROL DELETE  &mt LALT BACKSPACE  &kp ENTER  &kp SPACE        &kp LEFT   &kp DOWN      &LTraiseup 3 UP_ARROW  &kp RIGHT
-                                                                                                               &kp PRINTSCREEN  &kp RIGHT  &kp UP_ARROW  &kp LEFT               &kp DOWN
+                                                                                                               &kp PRINTSCREEN  SMART_NUM  &kp UP_ARROW  &kp LEFT               &smart_shft
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_DN &inc_dec_kp PG_UP PG_UP>;
@@ -381,7 +385,7 @@ ZMK_TAP_DANCE(num_dance,
             bindings = <
 &trans      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0        &trans
 &trans      &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET      &kp N7           &kp N8           &kp N9           &kp RBKT               &trans
-&trans      &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
+SMART_NUM      &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
 &caps_word  &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &kp LEFT_PARENTHESIS  &kp N1           &kp N2           &kp N3           &kp RIGHT_PARENTHESIS  &trans
 &trans      &trans           &trans           &trans           &trans           &trans           &kp MINUS             &kp N0           &kp DOT          &trans           &kp EQUAL
                                                                                                  &kp KP_ENTER          &kp RIGHT        &kp UP_ARROW     &kp LEFT_ARROW   &kp DOWN
