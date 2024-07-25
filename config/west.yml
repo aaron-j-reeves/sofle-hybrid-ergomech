@@ -2,10 +2,15 @@ manifest:
   remotes:
     - name: aaroncorgan
       url-base: https://github.com/aaroncorgan
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: aaroncorgan
       revision: main
       import: app/west.yml
+    - name: zmk-helpers
+      remote: urob
+      revision: v2 # this will eventually become main
   self:
     path: config
