@@ -24,14 +24,10 @@
 #define ADJUSTALT 9
  */
 
-#define QWERTY 0
-#define GAMING 1
-#define LOWER 2
-#define RAISE 3
-#define ADJUST 4
-#define LOWERALT 5
-#define RAISEALT 6
-#define ADJUSTALT 7
+#define BASE 0
+#define LOWER 1
+#define RAISE 2
+#define ADJUST 3
 
 /* Global settings */
 
@@ -56,8 +52,6 @@
     /* Caps-word, num-word and smart-mouse */
     
 #include "zmk-helpers/helper.h"
-// Source desired key-position labels
-#include "zmk-helpers/key-labels/sofle.h"
     
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
     ZMK_MOD_MORPH(smart_shft,
