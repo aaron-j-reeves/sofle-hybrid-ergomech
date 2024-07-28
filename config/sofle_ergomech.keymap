@@ -21,7 +21,6 @@
 #define raise_alt 6
 #define adjust_alt 7
 
-
 / {
     // Activate ADJUST layer by pressing raise and lower
 
@@ -230,6 +229,16 @@
             bindings = <&tog 1>;
             key-positions = <28 27 26 25 31 32 33 34>;
         };
+
+        cmrt {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <5 4>;
+        };
+
+        cmer {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <4 3>;
+        };
     };
 
     macros {
@@ -247,39 +256,11 @@
             label = "PW2";
         };
 
-        m1: m1 {
+        doubledash: doubledash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp NUMBER_1 &kp KP_NUMBER_6>;
-            label = "M1";
-        };
-
-        m2: m2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp NUMBER_2 &kp KP_NUMBER_7>;
-            label = "M2";
-        };
-
-        m3: m3 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp NUMBER_3 &kp KP_NUMBER_8>;
-            label = "M3";
-        };
-
-        m4: m4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp NUMBER_4 &kp KP_NUMBER_9>;
-            label = "M4";
-        };
-
-        m5: m5 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp N5 &kp KP_NUMBER_0>;
-            label = "M5";
+            bindings = <&kp MINUS &kp KP_MINUS>;
+            label = "DOUBLEDASH";
         };
     };
 
@@ -297,14 +278,16 @@
                                                                                                                &kp PRINTSCREEN  &kp RIGHT  &kp UP_ARROW  &kp LEFT               &kp DOWN
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_DN &inc_dec_kp PG_UP PG_UP>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_DN C_VOLUME_UP>,
+                <&inc_dec_kp PG_UP PG_UP>;
         };
 
         gaming_layer {
             label = "gaming";
             bindings = <
-&LTescgrv 5 0                    &m1           &m2               &m3                      &m4                 &m5                      &kp N6           &kp N7                 &kp N8                    &kp N9                      &kp N0                &LTshiftdel 6 0
-&kp MINUS                        &kp Q         &kp W             &kp E                    &kp R               &kp T                    &kp Y            &kp U                  &kp I                     &kp O                       &kp P                 &kp BACKSLASH
+&LTescgrv 5 0                    &kp N1        &kp N2            &kp N3                   &kp N4              &kp N5                   &kp N6           &kp N7                 &kp N8                    &kp N9                      &kp N0                &LTshiftdel 6 0
+&doubledash                      &kp Q         &kp W             &kp E                    &kp R               &kp T                    &kp Y            &kp U                  &kp I                     &kp O                       &kp P                 &kp BACKSLASH
 &kp TAB                          &kp A         &kp S             &kp D                    &kp F               &kp G                    &kp H            &kp J                  &kp K                     &kp L                       &kp SEMI              &kp SQT
 &mt LEFT_SHIFT LEFT_PARENTHESIS  &kp Z         &kp X             &kp C                    &kp V               &kp B                    &kp N            &kp M                  &kp COMMA                 &kp DOT                     &kp FSLH              &mt RIGHT_SHIFT KP_ENTER
 &kp F14                          &mt LGUI F24  &lt 2 LS(LC(N0))  &mt LEFT_CONTROL DELETE  &mt LALT BACKSPACE  &enterspace ENTER SPACE  &kp SPACE        &kp LEFT               &kp DOWN                  &lt 3 UP_ARROW              &kp RIGHT
@@ -319,12 +302,12 @@
         lower_layer {
             label = "lower";
             bindings = <
-&trans      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0        &trans
-&trans      &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET      &kp N7           &kp N8           &kp N9           &kp RBKT               &trans
-&trans      &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
-&caps_word  &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &kp LEFT_PARENTHESIS  &kp N1           &kp N2           &kp N3           &kp RIGHT_PARENTHESIS  &trans
-&trans      &trans           &trans           &trans           &trans           &trans           &kp MINUS             &kp N0           &kp DOT          &trans           &kp EQUAL
-                                                                                                 &kp KP_ENTER          &kp RIGHT        &kp UP_ARROW     &kp LEFT_ARROW   &kp DOWN
+&trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0        &trans
+&trans  &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET      &kp N7           &kp N8           &kp N9           &kp RBKT               &trans
+&trans  &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp LEFT_BRACE        &kp N4           &kp N5           &kp N6           &kp RIGHT_BRACE        &trans
+&trans  &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &kp LEFT_PARENTHESIS  &kp N1           &kp N2           &kp N3           &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans           &trans           &trans           &trans           &trans           &kp MINUS             &kp N0           &kp DOT          &trans           &kp EQUAL
+                                                                                             &kp KP_ENTER          &kp RIGHT        &kp UP_ARROW     &kp LEFT_ARROW   &kp DOWN
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -366,7 +349,6 @@
 &trans  &trans     &trans     &trans         &trans            &trans        &kp UNDER  &kp N0           &kp PERIOD    &trans                &kp PLUS
                                                                              &trans     &trans           &trans        &trans                &trans
             >;
-
         };
 
         raise_alt {
@@ -395,7 +377,6 @@
 &none  &none            &none            &none            &none            &none            &none            &none    &none    &none    &none
                                                                                             &none            &none    &none    &none    &none
             >;
-
         };
     };
 };
