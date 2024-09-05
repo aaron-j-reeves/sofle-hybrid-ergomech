@@ -104,7 +104,7 @@
         LTescgrv: LTescgrv {
             compatible = "zmk,behavior-hold-tap";
             label = "LTESCGRV";
-            bindings = <&mo>, <&escgrv>;
+            bindings = <&mo>, <&gresc>;
 
             #binding-cells = <2>;
             tapping-term-ms = <250>;
@@ -164,39 +164,29 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
         };
+
+        gaming_space: gaming_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GAMING_SPACE";
+            bindings = <&key_repeat>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        paste {
-            bindings = <&kp LC(V)>;
-            key-positions = <41 40>;
-        };
-
         copy {
-            bindings = <&kp LC(C)>;
+            bindings = <&kp LA(C)>;
             key-positions = <40 39>;
         };
 
         cut {
-            bindings = <&kp LC(X)>;
+            bindings = <&kp LS(C)>;
             key-positions = <39 38>;
-        };
-
-        undoredo {
-            bindings = <&TDundoredo>;
-            key-positions = <37 38>;
-        };
-
-        pwc1 {
-            bindings = <&pw1>;
-            key-positions = <0 12 24 36 49>;
-        };
-
-        pwc2 {
-            bindings = <&pw2>;
-            key-positions = <11 23 35 47 58>;
         };
 
         cm90 {
@@ -237,6 +227,41 @@
         cmer {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <4 3>;
+        };
+
+        cmb-11 {
+            bindings = <&kp GRAVE>;
+            key-positions = <0 1>;
+        };
+
+        cmb-copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <38 39 40>;
+        };
+
+        cmb-paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <41 40 39>;
+        };
+
+        cmb-cut {
+            bindings = <&kp LC(X)>;
+            key-positions = <37 38 39>;
+        };
+
+        cmb-undo {
+            bindings = <&TDundoredo>;
+            key-positions = <36 37 38>;
+        };
+
+        cmb-home {
+            bindings = <&kp N>;
+            key-positions = <28 27 26 25>;
+        };
+
+        cmb-wer {
+            bindings = <&doubledash>;
+            key-positions = <14 15 16>;
         };
     };
 
@@ -285,12 +310,12 @@
         gaming_layer {
             label = "gaming";
             bindings = <
-&LTescgrv 5 0                    &kp N1        &kp N2               &kp N3               &kp N4           &kp N5                   &kp N6           &kp N7                 &kp N8                    &kp N9                      &kp N0                &LTshiftdel 6 0
-&doubledash                      &kp Q         &kp W                &kp E                &kp R            &kp T                    &kp Y            &kp U                  &kp I                     &kp O                       &kp P                 &kp BACKSLASH
-&kp TAB                          &kp A         &kp S                &kp D                &kp F            &kp G                    &kp H            &kp J                  &kp K                     &kp L                       &kp SEMI              &kp SQT
-&mt LEFT_SHIFT LEFT_PARENTHESIS  &kp Z         &kp X                &kp C                &kp V            &kp B                    &kp N            &kp M                  &kp COMMA                 &kp DOT                     &kp FSLH              &mt RIGHT_SHIFT KP_ENTER
-&kp F14                          &mt LGUI F24  &mt LEFT_CONTROL N0  &mt LEFT_ALT DELETE  &lt 2 BACKSPACE  &enterspace ENTER SPACE  &kp SPACE        &LTraiseup 3 LEFT      &kp DOWN                  &kp UP                      &kp RIGHT
-                                                                                                                                   &kp PRINTSCREEN  &kp LS(LA(LC(RIGHT)))  &kp LS(LA(LC(UP_ARROW)))  &kp LS(LA(LC(LEFT_ARROW)))  &kp LS(LA(LC(DOWN)))
+&LTescgrv 5 0                    &kp N1        &kp N2               &kp N3               &kp N4           &kp N5     &kp N6           &kp N7                 &kp N8                    &kp N9                      &kp N0                &LTshiftdel 6 0
+&doubledash                      &kp Q         &kp W                &kp E                &kp R            &kp T      &kp Y            &kp U                  &kp I                     &kp O                       &kp P                 &kp BACKSLASH
+&kp TAB                          &kp A         &kp S                &kp D                &kp F            &kp G      &kp H            &kp J                  &kp K                     &kp L                       &kp SEMI              &kp SQT
+&mt LEFT_SHIFT LEFT_PARENTHESIS  &kp Z         &kp X                &kp C                &kp V            &kp B      &kp N            &kp M                  &kp COMMA                 &kp DOT                     &kp FSLH              &mt RIGHT_SHIFT KP_ENTER
+&kp F14                          &mt LGUI F24  &mt LEFT_CONTROL N0  &mt LEFT_ALT DELETE  &lt 2 BACKSPACE  &kp SPACE  &kp SPACE        &LTraiseup 3 LEFT      &kp DOWN                  &kp UP                      &kp RIGHT
+                                                                                                                     &kp PRINTSCREEN  &kp LS(LA(LC(RIGHT)))  &kp LS(LA(LC(UP_ARROW)))  &kp LS(LA(LC(LEFT_ARROW)))  &kp LS(LA(LC(DOWN)))
             >;
 
             sensor-bindings =
