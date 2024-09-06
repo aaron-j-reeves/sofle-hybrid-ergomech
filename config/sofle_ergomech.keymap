@@ -179,12 +179,12 @@
     combos {
         compatible = "zmk,combos";
 
-        copy {
+        cmb-cv {
             bindings = <&kp LA(C)>;
             key-positions = <40 39>;
         };
 
-        cut {
+        cmb-xc {
             bindings = <&kp LS(C)>;
             key-positions = <39 38>;
         };
@@ -209,29 +209,24 @@
             key-positions = <6 7>;
         };
 
-        cmtaba {
-            bindings = <&caps_word>;
-            key-positions = <24 25>;
-        };
-
         cmgaming {
             bindings = <&tog 1>;
             key-positions = <28 27 26 25 31 32 33 34>;
         };
 
-        cmrt {
+        cmb-asd {
             bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <5 4>;
+            key-positions = <25 26 27>;
         };
 
-        cmer {
+        cmb-dfg {
             bindings = <&kp LEFT_BRACKET>;
-            key-positions = <4 3>;
+            key-positions = <29 28 27>;
         };
 
-        cmb-11 {
+        cmb-GR12 {
             bindings = <&kp GRAVE>;
-            key-positions = <0 1>;
+            key-positions = <0 1 2>;
         };
 
         cmb-copy {
@@ -262,6 +257,21 @@
         cmb-wer {
             bindings = <&doubledash>;
             key-positions = <14 15 16>;
+        };
+
+        cmb-345 {
+            bindings = <&kp PERIOD>;
+            key-positions = <5 4 3>;
+        };
+
+        cmb-234 {
+            bindings = <&kp U>;
+            key-positions = <4 3 2>;
+        };
+
+        cmb-123 {
+            bindings = <&kp Y>;
+            key-positions = <1 2 3>;
         };
     };
 
