@@ -260,7 +260,7 @@
         };
 
         cmb-345 {
-            bindings = <&kp PERIOD>;
+            bindings = <&kp I>;
             key-positions = <5 4 3>;
         };
 
