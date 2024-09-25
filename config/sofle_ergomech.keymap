@@ -180,12 +180,12 @@
         compatible = "zmk,combos";
 
         cmb-cv {
-            bindings = <&kp LA(C)>;
+            bindings = <&altC_click>;
             key-positions = <40 39>;
         };
 
         cmb-xc {
-            bindings = <&kp LS(C)>;
+            bindings = <&shiftC_click>;
             key-positions = <39 38>;
         };
 
@@ -209,11 +209,6 @@
             key-positions = <6 7>;
         };
 
-        cmgaming {
-            bindings = <&tog 1>;
-            key-positions = <28 27 26 25 31 32 33 34>;
-        };
-
         cmb-asd {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <25 26 27>;
@@ -226,7 +221,7 @@
 
         cmb-GR12 {
             bindings = <&kp GRAVE>;
-            key-positions = <0 1 2>;
+            key-positions = <0 1>;
         };
 
         cmb-copy {
@@ -255,7 +250,7 @@
         };
 
         cmb-wer {
-            bindings = <&doubledash>;
+            bindings = <&kp N7>;
             key-positions = <14 15 16>;
         };
 
@@ -272,6 +267,11 @@
         cmb-123 {
             bindings = <&kp Y>;
             key-positions = <1 2 3>;
+        };
+
+        cmb-45 {
+            bindings = <&kp NUMBER_6>;
+            key-positions = <4 5>;
         };
     };
 
@@ -293,8 +293,69 @@
         doubledash: doubledash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp MINUS &kp KP_MINUS &kp LS(MINUS) &kp LS(KP_MINUS) &kp LC(MINUS) &kp LC(KP_MINUS)>;
+            bindings =
+                <&kp MINUS &kp LS(MINUS)>,
+                <&macro_pause_for_release>,
+                <&kp KP_MINUS &kp LS(KP_MINUS)>,
+                <&macro_press>;
+
             label = "DOUBLEDASH";
+        };
+
+        shiftC_click: shiftC_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(C)>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "SHIFTC_CLICK";
+        };
+
+        q_click: q_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "Q_CLICK";
+        };
+
+        w_click: w_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "W_CLICK";
+        };
+
+        e_click: e_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "E_CLICK";
+        };
+
+        r_click: r_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "R_CLICK";
+        };
+
+        t_click: t_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "T_CLICK";
+        };
+
+        altC_click: altC_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(C)>, <&macro_pause_for_release>, <&mkp MB1>;
+
+            label = "ALTC_CLICK";
         };
     };
 
