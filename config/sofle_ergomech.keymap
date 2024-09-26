@@ -296,8 +296,7 @@
             bindings =
                 <&kp MINUS &kp LS(MINUS)>,
                 <&macro_pause_for_release>,
-                <&kp KP_MINUS &kp LS(KP_MINUS)>,
-                <&macro_press>;
+                <&kp KP_MINUS &kp LS(KP_MINUS)>;
 
             label = "DOUBLEDASH";
             wait-ms = <50>;
