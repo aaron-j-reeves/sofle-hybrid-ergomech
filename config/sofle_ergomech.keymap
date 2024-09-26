@@ -48,15 +48,6 @@
     };
 
     behaviors {
-        escgrv: escgrv {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ESCGRV";
-            bindings = <&kp GRAVE>, <&kp ESCAPE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_RCTL|MOD_RALT|MOD_RGUI)>;
-        };
-
         wincontrol: wincontrol {
             compatible = "zmk,behavior-tap-dance";
             label = "WINCONTROL";
@@ -132,17 +123,6 @@
             tapping-term-ms = <250>;
         };
 
-        enterspace: enterspace {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ENTERSPACE";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <1000>;
-            quick-tap-ms = <500>;
-            flavor = "tap-preferred";
-        };
-
         LTraiseup: LTraiseup {
             compatible = "zmk,behavior-hold-tap";
             label = "LTRAISEUP";
@@ -151,27 +131,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-        };
-
-        LTlowtab: LTlowtab {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LTLOWTAB";
-            bindings = <&mo>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-        };
-
-        gaming_space: gaming_space {
-            compatible = "zmk,behavior-hold-tap";
-            label = "GAMING_SPACE";
-            bindings = <&key_repeat>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
     };
@@ -276,20 +235,6 @@
     };
 
     macros {
-        pw1: pw1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp MINUS &kp LS(N) &kp LT &kp LS(U) &kp LS(X) &kp N8 &kp AT &kp N &kp N0 &kp LS(P) &kp LS(R) &kp LS(W)>;
-            label = "PW1";
-        };
-
-        pw2: pw2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp B &kp LS(M) &kp LS(J) &kp L &kp RPAR &kp O &kp LS(Q) &kp LS(F) &kp V &kp K &kp N9 &kp V>;
-            label = "PW2";
-        };
-
         doubledash: doubledash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -308,6 +253,7 @@
             bindings = <&kp LS(C)>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "SHIFTC_CLICK";
+            wait-ms = <50>;
         };
 
         q_click: q_click {
@@ -316,6 +262,7 @@
             bindings = <&kp Q>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "Q_CLICK";
+            wait-ms = <50>;
         };
 
         w_click: w_click {
@@ -324,6 +271,7 @@
             bindings = <&kp W>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "W_CLICK";
+            wait-ms = <50>;
         };
 
         e_click: e_click {
@@ -332,6 +280,7 @@
             bindings = <&kp E>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "E_CLICK";
+            wait-ms = <50>;
         };
 
         r_click: r_click {
@@ -348,6 +297,7 @@
             bindings = <&kp T>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "T_CLICK";
+            wait-ms = <50>;
         };
 
         altC_click: altC_click {
@@ -356,6 +306,7 @@
             bindings = <&kp LA(C)>, <&macro_pause_for_release>, <&mkp MB1>;
 
             label = "ALTC_CLICK";
+            wait-ms = <50>;
         };
     };
 
