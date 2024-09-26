@@ -300,6 +300,7 @@
                 <&macro_press>;
 
             label = "DOUBLEDASH";
+            wait-ms = <50>;
         };
 
         shiftC_click: shiftC_click {
