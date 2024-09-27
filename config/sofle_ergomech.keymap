@@ -239,9 +239,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&kp MINUS &kp LS(MINUS)>,
+                <&kp MINUS &kp LC(MINUS)>,
                 <&macro_pause_for_release>,
-                <&kp KP_MINUS &kp LS(KP_MINUS)>;
+                <&kp KP_MINUS &kp LC(KP_MINUS)>;
 
             label = "DOUBLEDASH";
             wait-ms = <50>;
